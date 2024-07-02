@@ -1,5 +1,5 @@
 module.exports = {
-  printWidth: 80, // 한 줄 최대 글자 수
+  printWidth: 120, // 한 줄 최대 글자 수
   tabWidth: 2, // 탭 하나당 띄어쓰기 개수
   useTabs: false, // 탭 사용 X
   semi: true, // 세미콜론 사용

@@ -1,10 +1,17 @@
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "./pages/Login";
+import { OrderDetails, ProductManagement, Student, SignInPage } from "@/pages";
 
-export const Router = () => {
+function Router() {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />}></Route>
+      <Route path="/" element={<OrderDetails />} />
+      <Route path="/signin" element={<SignInPage />} />
+      <Route path="/order" element={<OrderDetails />} />
+      <Route path="/product" element={<ProductManagement />} />
+      <Route path="/student" element={<Student />} />
+      <Route path="*" element={<div>404</div>} />
     </Routes>
   );
-};
+}
+
+export default Router;
