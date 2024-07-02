@@ -1,37 +1,67 @@
 {
-  "hash": "db6410bf",
-  "configHash": "01221729",
-  "lockfileHash": "8063969b",
-  "browserHash": "fdf53011",
+  "hash": "b3aab55d",
+  "configHash": "7517211a",
+  "lockfileHash": "89e1a646",
+  "browserHash": "e7abcd3b",
   "optimized": {
     "react": {
       "src": "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "57c78db9",
+      "fileHash": "57b1766b",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/.pnpm/react@18.3.1/node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "9b21faf3",
+      "fileHash": "f82a0186",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../node_modules/.pnpm/react@18.3.1/node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "1549f393",
+      "fileHash": "ab6d0c4b",
       "needsInterop": true
+    },
+    "@tanstack/react-query": {
+      "src": "../../node_modules/.pnpm/@tanstack+react-query@5.48.0_react@18.3.1/node_modules/@tanstack/react-query/build/modern/index.js",
+      "file": "@tanstack_react-query.js",
+      "fileHash": "c096ec6f",
+      "needsInterop": false
     },
     "react-dom/client": {
       "src": "../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "8fc99517",
+      "fileHash": "6640ce03",
       "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/.pnpm/react-router-dom@6.24.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "f6cebc0f",
+      "needsInterop": false
+    },
+    "styled-components": {
+      "src": "../../node_modules/.pnpm/styled-components@6.1.11_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-components/dist/styled-components.browser.esm.js",
+      "file": "styled-components.js",
+      "fileHash": "8cf68376",
+      "needsInterop": false
+    },
+    "react-hook-form": {
+      "src": "../../node_modules/.pnpm/react-hook-form@7.52.0_react@18.3.1/node_modules/react-hook-form/dist/index.esm.mjs",
+      "file": "react-hook-form.js",
+      "fileHash": "52eb6098",
+      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-7CQ73C3Q": {
-      "file": "chunk-7CQ73C3Q.js"
+    "chunk-5WRUAYCV": {
+      "file": "chunk-5WRUAYCV.js"
+    },
+    "chunk-XDUJZ2WA": {
+      "file": "chunk-XDUJZ2WA.js"
+    },
+    "chunk-LXFOHYTZ": {
+      "file": "chunk-LXFOHYTZ.js"
     }
   }
 }
