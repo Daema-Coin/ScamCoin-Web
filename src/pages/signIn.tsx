@@ -36,6 +36,10 @@ const Container = styled.form`
   height: 100vh;
 
   background-color: #fafafa;
+
+  @media (max-width: 500px) {
+    background-color: #ffffff;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -49,6 +53,12 @@ const Wrapper = styled.div`
 
   background-color: #fff;
   box-shadow: 0 4px 20px 0 rgb(112 144 176 / 12%);
+
+  @media (max-width: 500px) {
+    width: 90%;
+    gap: 40px;
+    box-shadow: none;
+  }
 `;
 
 const LoginText = styled.span`
