@@ -10,18 +10,22 @@ type PropsType = {
 export const OptionInput = ({ children, name }: PropsType) => {
   return (
     <Stack justify="space-between">
-      <Text size={12} weight={700} color="#8d8d8d" lineHeight={28}>
+      <StyleText size={12} weight={700} color="#8d8d8d" lineHeight={28}>
         {name}
-      </Text>
+      </StyleText>
       <OptionWrapper position="relative">{children}</OptionWrapper>
     </Stack>
   );
 };
 
+const StyleText = styled(Text)`
+  width: 20%;
+`;
+
 const OptionWrapper = styled(Stack)`
-  width: 240px;
+  width: 80%;
 
   @media (max-width: 500px) {
-    width: 280px;
+    width: 80%;
   }
 `;

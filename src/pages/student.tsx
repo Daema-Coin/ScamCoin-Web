@@ -11,7 +11,11 @@ export const Student = () => {
   const { mutate } = useGrantCoin(setSelectUser);
 
   const grantCoinMutate = (type: "MINUS" | "PLUS") => {
-    type === "MINUS" ? mutate({ user_ids: selectUser, amount: -coin }) : mutate({ user_ids: selectUser, amount: coin });
+    if (selectUser.length > 0) {
+      type === "MINUS"
+        ? mutate({ user_ids: selectUser, amount: -coin })
+        : mutate({ user_ids: selectUser, amount: coin });
+    }
   };
 
   return (
@@ -35,6 +39,7 @@ export const Student = () => {
             <Button
               width={58}
               height={36}
+              disabled={selectUser.length === 0}
               onClick={() => {
                 grantCoinMutate("PLUS");
               }}
@@ -44,6 +49,7 @@ export const Student = () => {
             <Button
               width={58}
               height={36}
+              disabled={selectUser.length === 0}
               onClick={() => {
                 grantCoinMutate("MINUS");
               }}

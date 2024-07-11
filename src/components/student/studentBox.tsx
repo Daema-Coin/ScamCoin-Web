@@ -13,7 +13,7 @@ export const StudentBox = ({ item, isSelect, onClick }: PropsType) => {
   return (
     <Container $isSelect={isSelect} onClick={onClick}>
       <Stack align="center" gap={16} width="auto">
-        <StyleCheckbox checked={isSelect} />
+        <StyleCheckbox checked={isSelect} onChange={() => {}} />
         <Img src={DSM} alt="" />
         <StyleText size={18} weight={400}>
           {item.name}

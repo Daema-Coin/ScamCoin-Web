@@ -1,5 +1,5 @@
-import { usePreSignedURL, type CreateMenuRequest } from "@/apis";
-import { Pencil } from "@/assets/images";
+import { usePreSignedURL, useUpdateMenu, type CreateMenuRequest } from "@/apis";
+import { Pencil, DSMLogo } from "@/assets/images";
 import { Button, Input, OptionInput, Stack, Text, Textarea } from "@/components";
 import { useForm } from "@/hooks";
 import { useModal } from "@/stores";
@@ -21,10 +21,11 @@ export const ProductModal = ({ id, item }: PropsType) => {
     name: item?.name || "",
     description: item?.description || "",
     price: item?.price || 0,
-    image_url: item?.image_url || "",
+    image_url: item?.image_url || DSMLogo,
   });
 
   const { mutate: fileUploader } = usePreSignedURL(file!, form);
+  const { mutate: updateMutate } = useUpdateMenu();
 
   const { name, description, price, image_url } = form;
 
@@ -48,7 +49,7 @@ export const ProductModal = ({ id, item }: PropsType) => {
             width={50}
             height={28}
             onClick={() => {
-              fileUploader(id);
+              id ? updateMutate({ id, data: form }) : fileUploader(id);
             }}
           >
             {id ? "수정" : "추가"}
@@ -59,7 +60,14 @@ export const ProductModal = ({ id, item }: PropsType) => {
       <Stack width="100%">
         <InputWrapper direction="column" gap={16} padding="0 20px 0 0">
           <OptionInput name="상품 사진">
-            <ProductImg src={file ? URL.createObjectURL(file) : TransImageURL(image_url)} height={80} width={80} />
+            <ProductImg
+              src={file ? URL.createObjectURL(file) : TransImageURL(image_url)}
+              height={80}
+              width={80}
+              onClick={() => {
+                fileInput.current?.click();
+              }}
+            />
             <EditImg
               src={Pencil}
               width={20}
@@ -71,7 +79,7 @@ export const ProductModal = ({ id, item }: PropsType) => {
               type="file"
               hidden
               ref={fileInput}
-              accept="image/jpg, image/png"
+              accept="image/png"
               onChange={e => {
                 setFile(e.target.files ? e.target.files[0] : null);
               }}
@@ -107,7 +115,7 @@ export const ProductModal = ({ id, item }: PropsType) => {
                 {price}코인
               </Text>
             </Stack>
-            <ProductImg src={file ? URL.createObjectURL(file) : TransImageURL(image_url)} height={40} width={40} />
+            <ProductImg src={file ? URL.createObjectURL(file) : image_url} height={40} width={40} />
           </PreviewBox>
         </PreviewWrapper>
       </Stack>
@@ -136,7 +144,7 @@ const TitleWrapper = styled(Stack)`
   width: 600px;
 
   @media (max-width: 500px) {
-    width: 328px;
+    width: auto;
   }
 `;
 
@@ -155,6 +163,7 @@ const InputWrapper = styled(Stack)`
 const ProductImg = styled.img`
   border-radius: 4px;
   background-color: #cacaca;
+  cursor: pointer;
 `;
 
 const EditImg = styled.img`

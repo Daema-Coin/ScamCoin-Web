@@ -11,7 +11,7 @@ type PropsType = {
 
 export const Button = forwardRef(
   (
-    { size = 12, variant = "primary", children, icon, width, height = 26, ...props }: PropsType,
+    { size = 12, variant = "primary", children, width, height = 26, ...props }: PropsType,
     ref: ForwardedRef<HTMLButtonElement>
   ) => {
     return (

@@ -21,7 +21,7 @@ export const NavButton = ({ isSelect, name, width, total, ...props }: PropsType)
       $isSelect={isSelect}
       {...props}
     >
-      {total && (
+      {!!total && (
         <Text size={12} weight={500} color={isSelect ? "#3D8AFF" : "#CACACA"}>
           {total}건
         </Text>

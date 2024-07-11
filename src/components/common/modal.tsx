@@ -65,6 +65,6 @@ const ModalContents = styled.div`
   border: 1px solid #cacaca;
 
   background-color: #fff;
-  min-width: 370px;
+  min-width: 340px;
   box-shadow: 0 0 10px rgb(0 0 0 / 25%);
 `;

@@ -47,11 +47,13 @@ export const useCreateMenu = () => {
 
 export const useUpdateMenu = () => {
   const { closeModal } = useModal();
+  const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: ({ id, data }: { id: number; data: CreateMenuRequest }) => instance.put(`${router}/${id}`, data),
     onSuccess: () => {
       toast.success("해당 상품이 수정되었어요.");
+      queryClient.invalidateQueries({ queryKey: ["getMenus"] });
       closeModal();
     },
     onError: () => {

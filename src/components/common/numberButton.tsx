@@ -1,6 +1,6 @@
 import { Minus, Plus } from "@/assets/images";
 import { Text } from "@/components";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 type PropsType = {
   value: number;
@@ -14,10 +14,11 @@ export const NumberButton = ({ value, onChange }: PropsType) => {
         src={Minus}
         alt=""
         onClick={() => {
-          onChange(value - 1);
+          onChange(value <= 0 ? 0 : value - 1);
         }}
         width={16}
         height={16}
+        $disabled={value <= 0}
       />
       <Input
         value={value}
@@ -49,8 +50,13 @@ const Container = styled.div`
   padding: 2px 6px;
 `;
 
-const Img = styled.img`
-  cursor: pointer;
+const Img = styled.img<{ $disabled?: boolean }>`
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      opacity: 0.2;
+    `}
+  cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
 `;
 
 const Input = styled.input`
