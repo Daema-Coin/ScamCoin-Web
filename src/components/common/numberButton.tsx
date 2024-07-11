@@ -1,5 +1,4 @@
 import { Minus, Plus } from "@/assets/images";
-import { Text } from "@/components";
 import styled, { css } from "styled-components";
 
 type PropsType = {
