@@ -24,7 +24,7 @@ instance.interceptors.response.use(
   response => response,
   async (error: AxiosError<AxiosError>) => {
     if (axios.isAxiosError(error) && error.response) {
-      if (error.response.status === 422 || !cookies.get("access_token")) {
+      if (error.response.status === 401 || !cookies.get("access_token")) {
         cookies.remove("access_token");
         cookies.remove("refresh_token");
         window.location.href = "/signin";
