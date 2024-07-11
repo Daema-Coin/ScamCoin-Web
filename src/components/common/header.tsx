@@ -123,6 +123,15 @@ const BoothName = styled.span`
   width: 163.33px;
   text-align: end;
 
+  :first-child {
+    @media (max-width: 500px) {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
   @media (max-width: 500px) {
     width: 64px;
     flex-direction: column;
