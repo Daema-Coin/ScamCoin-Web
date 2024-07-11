@@ -21,7 +21,7 @@ export const ProductModal = ({ id, item }: PropsType) => {
     name: item?.name || "",
     description: item?.description || "",
     price: item?.price || 0,
-    image_url: item?.image_url || DSMLogo,
+    image_url: item?.image_url as string,
   });
 
   const { mutate: fileUploader } = usePreSignedURL(file!, form);
@@ -61,7 +61,7 @@ export const ProductModal = ({ id, item }: PropsType) => {
         <InputWrapper direction="column" gap={16} padding="0 20px 0 0">
           <OptionInput name="상품 사진">
             <ProductImg
-              src={file ? URL.createObjectURL(file) : TransImageURL(image_url)}
+              src={file ? URL.createObjectURL(file) : image_url ? TransImageURL(image_url) : DSMLogo}
               height={80}
               width={80}
               onClick={() => {
@@ -115,7 +115,11 @@ export const ProductModal = ({ id, item }: PropsType) => {
                 {price}코인
               </Text>
             </Stack>
-            <ProductImg src={file ? URL.createObjectURL(file) : image_url} height={40} width={40} />
+            <ProductImg
+              src={file ? URL.createObjectURL(file) : image_url ? TransImageURL(image_url) : DSMLogo}
+              height={40}
+              width={40}
+            />
           </PreviewBox>
         </PreviewWrapper>
       </Stack>
