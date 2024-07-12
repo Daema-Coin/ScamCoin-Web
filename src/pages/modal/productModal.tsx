@@ -49,7 +49,7 @@ export const ProductModal = ({ id, item }: PropsType) => {
             width={50}
             height={28}
             onClick={() => {
-              id ? updateMutate({ id, data: form }) : fileUploader(id);
+              file ? fileUploader(id) : updateMutate({ id: id!, data: form });
             }}
           >
             {id ? "수정" : "추가"}
